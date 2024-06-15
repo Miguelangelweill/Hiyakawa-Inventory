@@ -12,6 +12,6 @@ for (let index = 2; index < 8; index++) {
   const distributor = worksheet[`F${index}`];
   const reported_by = worksheet[`G${index}`];
   const count = worksheet[`H${index}`];
-  let c = countt;
-  console.log(c);
+  const finalCount = Object.values(count);
+  console.log(finalCount);
 }
