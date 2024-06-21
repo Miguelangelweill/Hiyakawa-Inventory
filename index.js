@@ -1,24 +1,42 @@
 let XLSX = require("xlsx");
 let fs = require("fs");
-let workbook = XLSX.readFile("./sheets/July_Beverage_Inventory_2024_Luis.xlsx");
+const { Console } = require("console");
+const CurrentWorkbook = XLSX.readFile("./sheets/CurrentInventory.xlsx");
+const MarginWorkbook = XLSX.readFile("./sheets/MarginEdgeInventory.xlsx");
+let worksheet = CurrentWorkbook.Sheets[CurrentWorkbook.SheetNames[0]];
+let MarginWorkSheet = MarginWorkbook.Sheets[MarginWorkbook.SheetNames[0]];
 
-let worksheet = workbook.Sheets[workbook.SheetNames[0]];
+let type,
+  country,
+  varietal,
+  producer,
+  vintage,
+  distributor,
+  reported_by,
+  count,
+  item,
+  price,
+  prevCount,
+  currentCount = 0;
 
-function getCounts(sheets) {
+
+function getBeverage(beverages) {
  let id = 0;
-  for (let i = 2; i < 500; i++) {
-    const type = sheets[`A${i}`];
-    const country = sheets[`B${i}`];
-    const varietal = sheets[`C${i}`];
-    const producer = sheets[`D${i}`];
-    const vintage = sheets[`E${i}`];
-    const distributor = sheets[`F${i}`];
-    const reported_by = sheets[`G${i}`];
-    const count = sheets[`H${i}`];
+  for (let i = 2; i < 200; i++) {
+   type = beverages[`A${i}`];
+   country = beverages[`B${i}`];
+   varietal = beverages[`C${i}`];
+   producer = beverages[`D${i}`];
+   vintage = beverages[`E${i}`];
+   distributor = beverages[`F${i}`];
+   count = beverages[`H${i}`];
     let { t, v, w } = count ?? { t: 0, v: 0, w: 0 };
+   let varietal2 = ({ t, v, w } = varietal ?? { t: 0, v: 0, w: 0 }); 
     id++
+    console.log(type.v);
+  //  console.log(beverages);
 
-    console.log(producer.v, varietal.v,type.v, v, "this is the id,",id );
   }
+
 }
-getCounts(worksheet);
+getBeverage(worksheet);
