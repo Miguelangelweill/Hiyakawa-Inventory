@@ -22,7 +22,7 @@ let type,
 
 function getBeverage(beverages) {
  let id = 0;
-  for (let i = 2; i < 200; i++) {
+  for (let i = 2; i < 4; i++) {
    type = beverages[`A${i}`];
    country = beverages[`B${i}`];
    varietal = beverages[`C${i}`];
@@ -33,7 +33,7 @@ function getBeverage(beverages) {
     let { t, v, w } = count ?? { t: 0, v: 0, w: 0 };
    let varietal2 = ({ t, v, w } = varietal ?? { t: 0, v: 0, w: 0 }); 
     id++
-    console.log(type.v);
+    console.log(beverages);
   //  console.log(beverages);
 
   }

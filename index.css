@@ -1,0 +1,13 @@
+.wrapper{
+position: relative;
+}
+.img-flyer{
+    width:500px;
+    position: absolute;
+}
+
+.img-video{
+    width: 500px;
+    position: absolute;
+    opacity: 0.8;
+}
